@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>right</title>
+</head>
+<body>
+    <span>Favorite food: </span>
+    <input type="text" id="favorite_food">
+    <br />
+    <br />
+    <span>Favorite sport: </span>
+    <input type="text" id="favorite_sport">
+    <br />
+    <br />
+    <span>Favorite animal: </span>
+    <input type="text" id="favorite_animal">
+    <br />
+    <br />
+    <button onclick="fillOutDone()">submit</button>
+
+    <script type="text/javascript">
+        function fillOutDone() {
+            var favorite_food = document.getElementById("favorite_food").value;
+            var favorite_sport = document.getElementById("favorite_sport").value;
+            var favorite_animal = document.getElementById("favorite_animal").value;
+            setCookie("favorite_food", favorite_food, 1);
+            setCookie("favorite_sport", favorite_sport, 1);
+            setCookie("favorite_animal", favorite_animal, 1);
+            alert(document.cookie);
+        }
+
+        function setCookie(key, value, day) {
+            var d = new Date();
+            d.setTime(d.getTime()  + (day*24*60*60*1000));
+            var expire = "expire=" + d.toUTCString();
+            document.cookie = key + "=" + value + ";" + expire + ";path=/";
+        }
+    </script>
+</body>
+</html>

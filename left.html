@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>left</title>
+</head>
+<body>
+    <span>favorite food: </span>
+    <span id="favorite_food"></span>
+    <br />
+    <span>favorite sport: </span>
+    <span id="favorite_sport"></span>
+    <br />
+    <span>favorite animal: </span>
+    <span id="favorite_animal"></span>
+    <br />
+    <script type="text/javascript">
+        document.getElementById('favorite_food').innerHTML = getCookie("favorite_food");
+        document.getElementById('favorite_sport').innerHTML = getCookie("favorite_sport");
+        document.getElementById('favorite_animal').innerHTML = getCookie("favorite_animal");
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+    </script>
+</body>
+</html>
