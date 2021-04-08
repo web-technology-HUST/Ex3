@@ -5,29 +5,23 @@
     <title>right</title>
 </head>
 <body>
-    <span>Favorite food: </span>
-    <input type="text" id="favorite_food">
+    <span>Name Blog: </span>
+    <input type="text" id="name_blog">
     <br />
     <br />
-    <span>Favorite sport: </span>
-    <input type="text" id="favorite_sport">
-    <br />
-    <br />
-    <span>Favorite animal: </span>
-    <input type="text" id="favorite_animal">
+    <p>Description: </p>
+    <textarea id="desc" cols="80" rows="10"></textarea>
     <br />
     <br />
     <button onclick="fillOutDone()">submit</button>
 
     <script type="text/javascript">
         function fillOutDone() {
-            var favorite_food = document.getElementById("favorite_food").value;
-            var favorite_sport = document.getElementById("favorite_sport").value;
-            var favorite_animal = document.getElementById("favorite_animal").value;
-            setCookie("favorite_food", favorite_food, 1);
-            setCookie("favorite_sport", favorite_sport, 1);
-            setCookie("favorite_animal", favorite_animal, 1);
-            alert(document.cookie);
+            var name_blog = document.getElementById("name_blog").value;
+            var desc = document.getElementById("desc").value;
+            setCookie("name_blog", name_blog, 1);
+            setCookie("desc", desc, 1);
+            window.parent.frames[0].location.reload();
         }
 
         function setCookie(key, value, day) {
